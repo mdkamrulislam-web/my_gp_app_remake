@@ -32,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return DefaultTabController(
       length: 7,
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           // centerTitle: true,
           title: const Text(
@@ -43,63 +44,91 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           bottom: PreferredSize(
               child: TabBar(
+                labelStyle: const TextStyle(
+                  fontWeight: FontWeight.w800,
+                ),
                 isScrollable: true,
-                unselectedLabelColor: Colors.white.withOpacity(0.5),
+                unselectedLabelColor: Colors.white.withOpacity(0.8),
                 indicatorColor: Colors.white,
+                unselectedLabelStyle: const TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'FS Joey Regular',
+                ),
                 tabs: const [
-                  Tab(
-                    child: Text(
-                      'Internet',
-                      style: TextStyle(
-                        fontSize: 20.0,
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.0, right: 4.0),
+                    child: Tab(
+                      child: Text(
+                        'Internet',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ),
-                  Tab(
-                    child: Text(
-                      'Minutes',
-                      style: TextStyle(
-                        fontSize: 20.0,
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.0, right: 4.0),
+                    child: Tab(
+                      child: Text(
+                        'Minutes',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ),
-                  Tab(
-                    child: Text(
-                      'Recharge Offers',
-                      style: TextStyle(
-                        fontSize: 20.0,
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.0, right: 4.0),
+                    child: Tab(
+                      child: Text(
+                        'Recharge Offers',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ),
-                  Tab(
-                    child: Text(
-                      'Gift Pack',
-                      style: TextStyle(
-                        fontSize: 20.0,
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.0, right: 4.0),
+                    child: Tab(
+                      child: Text(
+                        'Gift Pack',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ),
-                  Tab(
-                    child: Text(
-                      'My Offers',
-                      style: TextStyle(
-                        fontSize: 20.0,
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.0, right: 4.0),
+                    child: Tab(
+                      child: Text(
+                        'My Offers',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ),
-                  Tab(
-                    child: Text(
-                      'Free Offers',
-                      style: TextStyle(
-                        fontSize: 20.0,
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.0, right: 4.0),
+                    child: Tab(
+                      child: Text(
+                        'Free Offers',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ),
-                  Tab(
-                    child: Text(
-                      'Bundle',
-                      style: TextStyle(
-                        fontSize: 20.0,
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.0, right: 4.0),
+                    child: Tab(
+                      child: Text(
+                        'Bundle',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ),
@@ -108,12 +137,12 @@ class _MyHomePageState extends State<MyHomePage> {
               preferredSize: const Size.fromHeight(40.0)),
           actions: const <Widget>[
             Padding(
-              padding: EdgeInsets.only(right: 16.0),
+              padding: EdgeInsets.only(right: 16.0, top: 12),
               child: FaIcon(FontAwesomeIcons.search),
             ),
           ],
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: <Widget>[
             Center(
               child: Text('Minutes'),
@@ -122,7 +151,50 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Tab 2'),
             ),
             Center(
-              child: Text('Tab 3'),
+              child: ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 16.0, top: 20.0, bottom: 24),
+                    child: Row(
+                      children: const [
+                        Text(
+                          'Note: ',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          'The offers will activate with recharge',
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16, right: 16),
+                    child: Expanded(
+                      child: Container(
+                        decoration: new BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white,
+                              spreadRadius: 5.0, //extend the shadow
+                            )
+                          ],
+                        ),
+                        child: Row(
+                          children: const [
+                            FaIcon(
+                              Icons.inventory_2_outlined,
+                              color: Color.fromRGBO(51, 122, 187, 1),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             Center(
               child: Text('Minutes'),
