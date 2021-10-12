@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'bundlecard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,7 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 indicatorColor: Colors.white,
                 unselectedLabelStyle: const TextStyle(
                   fontWeight: FontWeight.w400,
-                  fontFamily: 'FS Joey Regular',
                 ),
                 tabs: const [
                   Padding(
@@ -162,37 +162,22 @@ class _MyHomePageState extends State<MyHomePage> {
                           'Note: ',
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
+                            fontSize: 15,
                           ),
                         ),
                         Text(
                           'The offers will activate with recharge',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
                         ),
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16),
-                    child: Expanded(
-                      child: Container(
-                        decoration: new BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.white,
-                              spreadRadius: 5.0, //extend the shadow
-                            )
-                          ],
-                        ),
-                        child: Row(
-                          children: const [
-                            FaIcon(
-                              Icons.inventory_2_outlined,
-                              color: Color.fromRGBO(51, 122, 187, 1),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  PackageCard(),
+                  PackageCard(),
+
+                  // BundleCard(),
                 ],
               ),
             ),
