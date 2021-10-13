@@ -14,6 +14,15 @@ class _MenuState extends State<Menu> {
       appBar: AppBar(
         title: Text('Menu'),
       ),
+      body: Center(
+        child: const Text(
+          'UNDER CONSTRUCTION',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+      ),
     );
   }
 }

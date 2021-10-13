@@ -14,6 +14,15 @@ class _ExploreState extends State<Explore> {
       appBar: AppBar(
         title: Text('Explore'),
       ),
+      body: Center(
+        child: const Text(
+          'UNDER CONSTRUCTION',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+      ),
     );
   }
 }

@@ -14,6 +14,15 @@ class _AccountState extends State<Account> {
       appBar: AppBar(
         title: Text('Account'),
       ),
+      body: Center(
+        child: const Text(
+          'UNDER CONSTRUCTION',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+      ),
     );
   }
 }

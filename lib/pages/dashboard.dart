@@ -14,6 +14,15 @@ class _DashboardState extends State<Dashboard> {
       appBar: AppBar(
         title: Text('Welcome to MyGp'),
       ),
+      body: Center(
+        child: const Text(
+          'UNDER CONSTRUCTION',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+      ),
     );
   }
 }

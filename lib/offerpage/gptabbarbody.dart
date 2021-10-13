@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testing/gprechargeoffers.dart';
+import 'package:testing/offerpage/gprechargeoffers.dart';
 
 class GPTabBarBody extends StatelessWidget {
   const GPTabBarBody({

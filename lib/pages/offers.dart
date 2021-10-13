@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../gptabbar.dart';
-import '../gptabbarbody.dart';
+import '../offerpage/gptabbar.dart';
+import '../offerpage/gptabbarbody.dart';
 
 class Offers extends StatefulWidget {
   const Offers({Key? key}) : super(key: key);
@@ -36,19 +36,6 @@ class _OffersState extends State<Offers> {
             ),
           ],
         ),
-        // bottomNavigationBar: GPBottomAppBar(),
-        // bottomNavigationBar: BottomNavigationBar(
-        //   items: const [
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.home),
-        //       label: 'Home',
-        //     ),
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.local_offer_sharp),
-        //       label: 'Offers',
-        //     ),
-        //   ],
-        // ),
         body: const GPTabBarBody(),
       ),
     );
