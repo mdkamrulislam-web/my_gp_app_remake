@@ -31,7 +31,6 @@ class _HomeState extends State<Home> {
   Widget currentScreen = Dashboard();
   final PageStorageBucket bucket = PageStorageBucket();
   bool pressed = true;
-  bool unpressed = false;
   String buttonText = 'Explore';
 
   @override

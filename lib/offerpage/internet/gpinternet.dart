@@ -18,37 +18,52 @@ class _GPInternetState extends State<GPInternet> {
     return ListView(
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 16.0, top: 20.0, bottom: 24),
-          child: Row(
-            children: [
-              Text(
-                'Sort by: ',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 4.0),
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton<String>(
-                    items: _items.map((String dropDownItems) {
-                      return DropdownMenuItem<String>(
-                        value: dropDownItems,
-                        child: Text(dropDownItems),
-                      );
-                    }).toList(),
-                    onChanged: (String? newSelectedValue) {
-                      setState(() {
-                        dropDownValue = newSelectedValue;
-                      });
-                    },
-                    value: dropDownValue,
-                    icon: Icon(Icons.expand_more),
+          padding: const EdgeInsets.only(bottom: 24.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.grey,
+                  offset: Offset(0.25, 0.5), //(x,y)
+                  blurRadius: 1.0, // spreadRadius: 1.0, //extend the shadow
+                )
+              ],
+            ),
+            child: Padding(
+              padding: EdgeInsets.only(left: 16.0, top: 4, bottom: 4),
+              child: Row(
+                children: [
+                  Text(
+                    'Sort by: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 15,
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.0),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        items: _items.map((String dropDownItems) {
+                          return DropdownMenuItem<String>(
+                            value: dropDownItems,
+                            child: Text(dropDownItems),
+                          );
+                        }).toList(),
+                        onChanged: (String? newSelectedValue) {
+                          setState(() {
+                            dropDownValue = newSelectedValue;
+                          });
+                        },
+                        value: dropDownValue,
+                        icon: Icon(Icons.expand_more),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
         const GPInternetOfferCards(

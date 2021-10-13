@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'offerpage/internet/internetoffercards.dart';
+
 TextStyle kBottomAppBarTextUnseleted = TextStyle(
     color: Colors.grey,
     fontWeight: FontWeight.w600); //fromRGBO(164, 164, 164, 1))
@@ -45,3 +47,6 @@ Container kInternetPackageIconWithBackground = Container(
     ),
   ),
 );
+
+Color kFacilityBackgroundDeepColor = Colors.red;
+Color kFacilityBackgroundLightColor = Colors.red;
