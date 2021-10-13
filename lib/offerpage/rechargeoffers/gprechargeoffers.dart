@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bundlecard.dart';
+import 'rechargeoffercards.dart';
 
 class GPRechargeOffers extends StatelessWidget {
   const GPRechargeOffers({
@@ -31,12 +31,12 @@ class GPRechargeOffers extends StatelessWidget {
           ),
         ),
 
-        const PackageCard(1000, 30, 796, '25 GB', 80,
+        const RechargeOffersPackageCard(1000, 30, 796, '25 GB', 80,
             null), // minute; day; tk; gb; cashback; bonus;
-        const PackageCard(750, 30, 598, '25 GB', 52, null),
-        const PackageCard(null, 30, 516, '50 GB', 50, null),
-        const PackageCard(500, 30, 307, '', 40, '512 MB'),
-        const PackageCard(null, 30, 307, '1 GB', 20, null),
+        const RechargeOffersPackageCard(750, 30, 598, '25 GB', 52, null),
+        const RechargeOffersPackageCard(null, 30, 516, '50 GB', 50, null),
+        const RechargeOffersPackageCard(500, 30, 307, '', 40, '512 MB'),
+        const RechargeOffersPackageCard(null, 30, 307, '1 GB', 20, null),
       ],
     );
   }

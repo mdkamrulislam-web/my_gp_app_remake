@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:testing/constants.dart';
 
-class PackageCard extends StatelessWidget {
-  const PackageCard(
+class RechargeOffersPackageCard extends StatelessWidget {
+  const RechargeOffersPackageCard(
       this.minute, this.day, this.tk, this.net, this.cashback, this.bonus,
       {Key? key})
       : super(key: key);
@@ -26,6 +27,19 @@ class PackageCard extends StatelessWidget {
       } else if (minute != null && net == '') {
         String x = '$minute Minutes';
         return x;
+      }
+    }
+
+    FaIcon? iconSelector() {
+      if (minute != null && net != '') {
+        FaIcon m = kPackageIcon_bundle;
+        return m;
+      } else if (minute == null && net != '') {
+        FaIcon m = kPackageIcon_net;
+        return m;
+      } else if (minute != null && net == '') {
+        FaIcon m = kPackageIcon_phone;
+        return m;
       }
     }
 
@@ -53,13 +67,9 @@ class PackageCard extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.only(left: 12),
-                        child: FaIcon(
-                          Icons.inventory_2_outlined,
-                          color: Color.fromRGBO(51, 122, 187, 1),
-                          size: 30,
-                        ),
+                        child: iconSelector(),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 12.0),
