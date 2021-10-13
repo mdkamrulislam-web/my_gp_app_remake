@@ -1,15 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:testing/constants.dart';
+import 'gpinternet.dart';
 
-class GPInternetOfferCards extends StatefulWidget {
-  const GPInternetOfferCards({Key? key}) : super(key: key);
+class GPInternetOfferCards extends StatelessWidget {
+  const GPInternetOfferCards(
+      this.day, this.tk, this.net, this.coins, this.facility,
+      {Key? key})
+      : super(key: key);
+
+  final String? day;
+  final int? tk;
+  final String? net;
+  final int? coins;
+  final String? facility;
 
   @override
-  _GPInternetOfferCardsState createState() => _GPInternetOfferCardsState();
-}
+  Container? coinChecker() {
+    if (coins != null) {
+      Container x = kInternetPackageIconWithBackground;
+      return x;
+    }
+  }
 
-class _GPInternetOfferCardsState extends State<GPInternetOfferCards> {
-  @override
+  String? coinVerifier() {
+    if (coins != null) {
+      String x = coins.toString();
+      return x;
+    }
+    if (coins == null) {
+      String x = '';
+      return x;
+    }
+  }
+
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -41,7 +65,7 @@ class _GPInternetOfferCardsState extends State<GPInternetOfferCards> {
                       Padding(
                         padding: const EdgeInsets.only(left: 12.0),
                         child: Text(
-                          '13 GB',
+                          '$net',
                           style: const TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,
@@ -56,18 +80,31 @@ class _GPInternetOfferCardsState extends State<GPInternetOfferCards> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '7 Days',
-                          style: const TextStyle(
-                            fontSize: 18,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              '$day',
+                              style: const TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16.0, right: 8.0),
+                              child: coinChecker(),
+                            ),
+                            Text(coinVerifier().toString()),
+                          ],
                         ),
-                        Text(
-                          '৳152',
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              '৳$tk',
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

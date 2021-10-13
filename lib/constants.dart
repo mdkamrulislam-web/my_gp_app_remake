@@ -22,3 +22,26 @@ FaIcon kPackageIcon_phone = FaIcon(
   color: Color.fromRGBO(51, 122, 187, 1),
   size: 30,
 );
+
+FaIcon kInternetPackageCoinIcon = FaIcon(
+  FontAwesomeIcons.coins,
+  size: 13,
+);
+
+Container kInternetPackageIconWithBackground = Container(
+  height: 25,
+  width: 25,
+  decoration: BoxDecoration(
+    color: Color.fromRGBO(236, 224, 140, 1),
+    shape: BoxShape.circle,
+  ),
+  child: Center(
+    child: Padding(
+      padding: EdgeInsets.only(top: 2.0),
+      child: FaIcon(
+        FontAwesomeIcons.coins,
+        size: 13,
+      ),
+    ),
+  ),
+);

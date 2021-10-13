@@ -9,42 +9,59 @@ class GPInternet extends StatefulWidget {
 }
 
 class _GPInternetState extends State<GPInternet> {
+  final dropDownItems = ['Popularity', 'Price', 'Validity', 'Volume'];
+  String? dropDownValue = 'Popularity';
+  var _items = ['Popularity', 'Price', 'Validity', 'Volume'];
+
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 16.0, top: 20.0, bottom: 24),
+          padding: EdgeInsets.only(left: 16.0, top: 20.0, bottom: 24),
           child: Row(
-            children: const [
+            children: [
               Text(
-                'Note: ',
+                'Sort by: ',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 15,
                 ),
               ),
-              Text(
-                'The offers will activate with recharge',
-                style: TextStyle(
-                  fontSize: 15,
+              Padding(
+                padding: EdgeInsets.only(left: 4.0),
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    items: _items.map((String dropDownItems) {
+                      return DropdownMenuItem<String>(
+                        value: dropDownItems,
+                        child: Text(dropDownItems),
+                      );
+                    }).toList(),
+                    onChanged: (String? newSelectedValue) {
+                      setState(() {
+                        dropDownValue = newSelectedValue;
+                      });
+                    },
+                    value: dropDownValue,
+                    icon: Icon(Icons.expand_more),
+                  ),
                 ),
               ),
             ],
           ),
         ),
-
-        const GPInternetOfferCards(),
-        // (1000, 30, 796, '25 GB', 80, null), // minute; day; tk; gb; cashback; bonus;
-        const GPInternetOfferCards(),
-        // (750, 30, 598, '25 GB', 52, null),
-        const GPInternetOfferCards(),
-        // (null, 30, 516, '50 GB', 50, null),
-        const GPInternetOfferCards(),
-        // (500, 30, 307, '', 40, '512 MB'),
-        const GPInternetOfferCards(),
-        // (null, 30, 307, '1 GB', 20, null),
-        const GPInternetOfferCards(),
+        const GPInternetOfferCards(
+            '7 Days', 152, '13 GB', null, 'Limited Time Offer'),
+        const GPInternetOfferCards('30 Days', 516, '50 GB', null, ''),
+        const GPInternetOfferCards(
+            '30 Days', 308, '7 GB', 253, '16.7% bonus included'),
+        const GPInternetOfferCards(
+            '7 Days', 94, '3 GB', 77, '20% bonus included'),
+        const GPInternetOfferCards(
+            '7 Days', 198, '14.3 GB', 163, '10% bonus included'),
+        const GPInternetOfferCards(
+            '72 Hours', 69, '4 GB', 57, '14.3% bonus included'),
       ],
     );
   }
