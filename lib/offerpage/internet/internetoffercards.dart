@@ -85,14 +85,19 @@ class GPInternetOfferCards extends StatelessWidget {
                             Text(
                               '$day',
                               style: const TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                               ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 16.0, right: 8.0),
                               child: coinChecker(),
                             ),
-                            Text(coinVerifier().toString()),
+                            Text(
+                              coinVerifier().toString(),
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
                           ],
                         ),
                         Row(
