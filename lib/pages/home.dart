@@ -5,7 +5,7 @@ import 'package:testing/pages/account.dart';
 import 'package:testing/pages/dashboard.dart';
 import 'package:testing/pages/explore.dart';
 import 'package:testing/pages/menu.dart';
-import 'package:testing/pages/offers.dart';
+import 'package:testing/pages/offerpage/offers.dart';
 import 'package:testing/constants.dart';
 
 class Home extends StatefulWidget {
@@ -30,10 +30,21 @@ class _HomeState extends State<Home> {
   // Widget currentScreen = Dashboard();
   Widget currentScreen = Dashboard();
   final PageStorageBucket bucket = PageStorageBucket();
-  bool pressed = true;
+  bool pressed = false;
   String buttonText = 'Explore';
 
   @override
+  Color? exploreButtonCheck() {
+    if (pressed == true) {
+      Color x = Colors.blue;
+      return x;
+    }
+    if (pressed == false) {
+      Color x = Colors.grey;
+      return x;
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageStorage(
@@ -43,7 +54,9 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            pressed = !pressed;
+            print(pressed);
+            pressed = true;
+            print(pressed);
             currentScreen = Explore();
             currentTab = 4;
           });
@@ -63,7 +76,7 @@ class _HomeState extends State<Home> {
         child: Container(
           height: 60,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               MaterialButton(
                 minWidth: 40,
@@ -73,6 +86,7 @@ class _HomeState extends State<Home> {
                       // currentScreen = Explore();
                       currentScreen = Dashboard();
                       currentTab = 0;
+                      pressed = false;
                     },
                   );
                 },
@@ -96,6 +110,7 @@ class _HomeState extends State<Home> {
                     () {
                       currentScreen = Offers();
                       currentTab = 1;
+                      pressed = false;
                     },
                   );
                 },
@@ -115,12 +130,13 @@ class _HomeState extends State<Home> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
+                  padding: EdgeInsets.only(bottom: 10.0, left: 12),
                   child: Text(
                     buttonText,
-                    style: pressed
-                        ? kBottomAppBarTextUnselected
-                        : kBottomAppBarTextSelected,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: exploreButtonCheck(),
+                    ),
                   ),
                 ),
               ),
@@ -132,6 +148,7 @@ class _HomeState extends State<Home> {
                       // currentScreen = Explore();
                       currentScreen = Account();
                       currentTab = 2;
+                      pressed = false;
                     },
                   );
                 },
@@ -156,6 +173,7 @@ class _HomeState extends State<Home> {
                       // currentScreen = Explore();
                       currentScreen = Menu();
                       currentTab = 3;
+                      pressed = false;
                     },
                   );
                 },

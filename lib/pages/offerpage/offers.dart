@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'offerpage/gptabbar.dart';
-import 'offerpage/gptabbarbody.dart';
+import 'gptabbar.dart';
+import 'gptabbarbody.dart';
 
 class Offers extends StatefulWidget {
   const Offers({Key? key}) : super(key: key);
