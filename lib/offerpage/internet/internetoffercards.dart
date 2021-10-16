@@ -54,9 +54,11 @@ class GPInternetOfferCards extends StatelessWidget {
     return Column(
       children: [
         Stack(
+          alignment: Alignment.topCenter,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16),
+              padding: const EdgeInsets.only(
+                  left: 16, right: 16, top: 8, bottom: 1.5),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
@@ -143,11 +145,10 @@ class GPInternetOfferCards extends StatelessWidget {
               top: 8,
               child: CustomPaint(
                 size: Size(
-                    180,
+                    170,
                     (120 * 0.65)
                         .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
                 painter: customPaintBackground(),
-// child: Text('Limited Time Offer'),
               ),
             ),
             Positioned(
@@ -159,6 +160,29 @@ class GPInternetOfferCards extends StatelessWidget {
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                     fontSize: 13),
+              ),
+            ),
+            Positioned(
+              bottom: 80,
+              child: Align(
+                child: Container(
+                  height: 20,
+                  width: 40,
+                  margin: EdgeInsets.only(top: 40, left: 40, right: 40),
+                  decoration: new BoxDecoration(
+                    color: Color.fromRGBO(183, 234, 183, 1),
+                    // border: Border.all(color: Colors.black, width: 0.0),
+                    borderRadius:
+                        new BorderRadius.all(Radius.elliptical(50, 50)),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'New',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
@@ -227,6 +251,3 @@ class RPSCustomPainter extends CustomPainter {
     return true;
   }
 }
-
-//Color.fromRGBO(2, 120, 207, 1)
-//Color.fromRGBO(0, 111, 186, 1)

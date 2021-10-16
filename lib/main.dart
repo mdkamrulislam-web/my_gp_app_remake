@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:testing/offerpage/gptabbar.dart';
-import 'package:testing/offerpage/gptabbarbody.dart';
 import 'package:testing/pages/home.dart';
-// import 'gpbottomappbar.dart';
 
 void main() {
   runApp(const MyApp());

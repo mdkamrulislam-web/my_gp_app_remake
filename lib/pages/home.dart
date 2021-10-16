@@ -119,8 +119,8 @@ class _HomeState extends State<Home> {
                   child: Text(
                     buttonText,
                     style: pressed
-                        ? kBottomAppBarTextUnseleted
-                        : kBottomAppBarTextSeleted,
+                        ? kBottomAppBarTextUnselected
+                        : kBottomAppBarTextSelected,
                   ),
                 ),
               ),

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'offerpage/internet/internetoffercards.dart';
-
-TextStyle kBottomAppBarTextUnseleted = TextStyle(
+TextStyle kBottomAppBarTextUnselected = TextStyle(
     color: Colors.grey,
     fontWeight: FontWeight.w600); //fromRGBO(164, 164, 164, 1))
 
-TextStyle kBottomAppBarTextSeleted =
+TextStyle kBottomAppBarTextSelected =
     TextStyle(color: Colors.blue, fontWeight: FontWeight.w600);
 
 TextStyle kBottomAppBarToggle =

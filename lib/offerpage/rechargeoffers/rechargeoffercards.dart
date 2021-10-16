@@ -43,6 +43,16 @@ class RechargeOffersPackageCard extends StatelessWidget {
       }
     }
 
+    String? bonusChecker() {
+      if (bonus != null) {
+        String x = '+' + bonus.toString();
+        return x;
+      } else if (bonus == null) {
+        String x = '';
+        return x;
+      }
+    }
+
     // '$minute Minutes + $net'
     return Column(
       children: [
@@ -78,6 +88,33 @@ class RechargeOffersPackageCard extends StatelessWidget {
                           style: const TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 5),
+                        decoration: new BoxDecoration(
+                          color: Color.fromRGBO(225, 255, 240, 1),
+                          borderRadius:
+                              new BorderRadius.all(Radius.elliptical(50, 50)),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(0.25, 0.25), //(x,y)
+                              blurRadius:
+                                  1.5, // spreadRadius: 1.0, //extend the shadow
+                            )
+                          ],
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 4.0, bottom: 4.0, left: 8, right: 8),
+                            child: Text(
+                              bonusChecker()!,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 12),
+                            ),
                           ),
                         ),
                       ),
