@@ -36,16 +36,3 @@ class InterOfferDataModel {
         package: json['package'],
       );
 }
-
-//   Map<String, dynamic> toJson() {
-//     final Map<String, dynamic> data = new Map<String, dynamic>();
-//     data['id'] = this.id;
-//     data['day'] = this.day;
-//     data['tk'] = this.tk;
-//     data['net'] = this.net;
-//     data['coins'] = this.coins;
-//     data['facility'] = this.facility;
-//     data['package'] = this.package;
-//     return data;
-//   }
-// }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testing/api/internetofferapi.dart';
-import '../../../internetofferdatamodel.dart';
+import '../../../models/internetofferdatamodel.dart';
 import 'internetoffercards.dart';
 
 class GPInternet extends StatefulWidget {
