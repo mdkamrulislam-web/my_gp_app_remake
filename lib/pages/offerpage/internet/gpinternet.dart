@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testing/offerpage/internet/internetoffercards.dart';
+
+import 'internetoffercards.dart';
 
 class GPInternet extends StatefulWidget {
   const GPInternet({Key? key}) : super(key: key);

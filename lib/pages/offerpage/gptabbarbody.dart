@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:testing/offerpage/internet/gpinternet.dart';
-import 'package:testing/offerpage/rechargeoffers/gprechargeoffers.dart';
+import 'package:testing/pages/offerpage/rechargeoffers/gprechargeoffers.dart';
+
+import 'internet/gpinternet.dart';
 
 class GPTabBarBody extends StatelessWidget {
   const GPTabBarBody({

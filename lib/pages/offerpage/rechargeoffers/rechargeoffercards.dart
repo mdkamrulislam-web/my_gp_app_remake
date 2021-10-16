@@ -53,6 +53,43 @@ class RechargeOffersPackageCard extends StatelessWidget {
       }
     }
 
+    List? bonusAndBonusContainerChecker() {
+      if (bonus != null) {
+        BoxDecoration bd = BoxDecoration(
+          color: Color.fromRGBO(225, 255, 240, 1),
+          borderRadius: new BorderRadius.all(Radius.elliptical(50, 50)),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.grey,
+              offset: Offset(0.25, 0.25), //(x,y)
+              blurRadius: 1.5, // spreadRadius: 1.0, //extend the shadow
+            )
+          ],
+        );
+        TextStyle ts = TextStyle(
+            fontWeight: FontWeight.w600, fontSize: 12, color: Colors.black);
+        return [bd, ts];
+      } else if (bonus == null) {
+        BoxDecoration bd = BoxDecoration(
+          borderRadius: BorderRadius.circular(0),
+          color: Colors.white,
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(0, 0), //(x,y)
+              blurRadius: 0, // spreadRadius: 1.0, //extend the shadow
+            )
+          ],
+        );
+        TextStyle ts = TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 12,
+          color: Colors.white,
+        );
+        return [bd, ts];
+      }
+    }
+
     // '$minute Minutes + $net'
     return Column(
       children: [
@@ -85,7 +122,7 @@ class RechargeOffersPackageCard extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 12.0),
                         child: Text(
                           dataChecker()!,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,
                           ),
@@ -93,27 +130,31 @@ class RechargeOffersPackageCard extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 5),
-                        decoration: new BoxDecoration(
-                          color: Color.fromRGBO(225, 255, 240, 1),
-                          borderRadius:
-                              new BorderRadius.all(Radius.elliptical(50, 50)),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.grey,
-                              offset: Offset(0.25, 0.25), //(x,y)
-                              blurRadius:
-                                  1.5, // spreadRadius: 1.0, //extend the shadow
-                            )
-                          ],
-                        ),
+                        decoration: bonusAndBonusContainerChecker()![0],
+                        // BoxDecoration(
+                        //   color: Color.fromRGBO(225, 255, 240, 1),
+                        //   borderRadius:
+                        //       new BorderRadius.all(Radius.elliptical(50, 50)),
+                        //   boxShadow: const [
+                        //     BoxShadow(
+                        //       color: Colors.grey,
+                        //       offset: Offset(0.25, 0.25), //(x,y)
+                        //       blurRadius:
+                        //           1.5, // spreadRadius: 1.0, //extend the shadow
+                        //     )
+                        //   ],
+                        // ),
                         child: Center(
                           child: Padding(
                             padding: const EdgeInsets.only(
                                 top: 4.0, bottom: 4.0, left: 8, right: 8),
                             child: Text(
                               bonusChecker()!,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 12),
+                              style: bonusAndBonusContainerChecker()![1],
+                              // TextStyle(
+                              //     fontWeight: FontWeight.w600,
+                              //     fontSize: 12,
+                              //     color: Colors.black),
                             ),
                           ),
                         ),
