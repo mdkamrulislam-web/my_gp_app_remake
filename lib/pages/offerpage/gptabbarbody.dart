@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:testing/pages/offerpage/rechargeoffers/gprechargeoffers.dart';
-
 import 'internet/gpinternet.dart';
 
 class GPTabBarBody extends StatelessWidget {
@@ -13,7 +12,9 @@ class GPTabBarBody extends StatelessWidget {
     return const TabBarView(
       children: <Widget>[
         Center(
-          child: GPInternet(),
+          child:
+              // MyGPInternetScreen()
+              GPInternet(),
         ),
         Center(
           child: Text('Minutes'),

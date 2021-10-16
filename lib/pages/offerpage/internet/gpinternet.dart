@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:testing/api/internetofferapi.dart';
+import '../../../internetofferdatamodel.dart';
 import 'internetoffercards.dart';
 
 class GPInternet extends StatefulWidget {
@@ -12,18 +13,45 @@ class GPInternet extends StatefulWidget {
 class _GPInternetState extends State<GPInternet> {
   final dropDownItems = ['Popularity', 'Price', 'Validity', 'Volume'];
   String? dropDownValue = 'Popularity';
-  var _items = ['Popularity', 'Price', 'Validity', 'Volume'];
+  final _items = ['Popularity', 'Price', 'Validity', 'Volume'];
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
+      children: [
+        Expanded(
+          child: FutureBuilder<List<InterOfferDataModel>>(
+              future: InternetOfferApi.getInternetOfferDataLocally(context),
+              builder: (context, snapshot) {
+                final internetoffers = snapshot.data;
+
+                switch (snapshot.connectionState) {
+                  case ConnectionState.waiting:
+                    return const Center(child: CircularProgressIndicator());
+                  default:
+                    if (snapshot.hasError) {
+                      return const Center(
+                        child: Text('Some Error Occurred!'),
+                      );
+                    } else {
+                      return buildInternetOffers(internetoffers!);
+                    }
+                }
+              }),
+        ),
+      ],
+    );
+  }
+
+  Widget buildInternetOffers(List<InterOfferDataModel> internetoffers) {
+    return Column(
       children: [
         Padding(
           padding: const EdgeInsets.only(bottom: 24.0),
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
-              boxShadow: const [
+              boxShadow: [
                 BoxShadow(
                   color: Colors.grey,
                   offset: Offset(0.25, 0.5), //(x,y)
@@ -32,10 +60,10 @@ class _GPInternetState extends State<GPInternet> {
               ],
             ),
             child: Padding(
-              padding: EdgeInsets.only(left: 16.0, top: 4, bottom: 4),
+              padding: const EdgeInsets.only(left: 16.0, top: 4, bottom: 4),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Sort by: ',
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
@@ -43,7 +71,7 @@ class _GPInternetState extends State<GPInternet> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 4.0),
+                    padding: const EdgeInsets.only(left: 4.0),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
                         items: _items.map((String dropDownItems) {
@@ -58,7 +86,7 @@ class _GPInternetState extends State<GPInternet> {
                           });
                         },
                         value: dropDownValue,
-                        icon: Icon(Icons.expand_more),
+                        icon: const Icon(Icons.expand_more),
                       ),
                     ),
                   ),
@@ -67,17 +95,21 @@ class _GPInternetState extends State<GPInternet> {
             ),
           ),
         ),
-        const GPInternetOfferCards(
-            '7 Days', 152, '13 GB', null, 'Limited Time Offer'),
-        const GPInternetOfferCards('30 Days', 516, '50 GB', null, ''),
-        const GPInternetOfferCards(
-            '30 Days', 308, '7 GB', 253, '16.7% bonus included'),
-        const GPInternetOfferCards(
-            '7 Days', 94, '3 GB', 77, '20% bonus included'),
-        const GPInternetOfferCards(
-            '7 Days', 198, '14.3 GB', 163, '10% bonus included'),
-        const GPInternetOfferCards(
-            '72 Hours', 69, '4 GB', 57, '14.3% bonus included'),
+        Expanded(
+          child: ListView.builder(
+              itemCount: internetoffers.length,
+              itemBuilder: (context, index) {
+                final internetoffer = internetoffers[index];
+                return GPInternetOfferCards(
+                  internetoffer.day,
+                  internetoffer.tk,
+                  internetoffer.net,
+                  internetoffer.coins,
+                  internetoffer.facility,
+                );
+                // ('7 Days', 152, '13 GB', null, 'Limited Time Offer');
+              }),
+        ),
       ],
     );
   }

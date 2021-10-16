@@ -6,7 +6,6 @@ import 'package:testing/pages/dashboard.dart';
 import 'package:testing/pages/explore.dart';
 import 'package:testing/pages/menu.dart';
 import 'package:testing/pages/offerpage/offers.dart';
-import 'package:testing/constants.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -26,8 +25,6 @@ class _HomeState extends State<Home> {
     Menu(),
   ]; //To store Tab views
 
-  //Active Page (Tab)
-  // Widget currentScreen = Dashboard();
   Widget currentScreen = Dashboard();
   final PageStorageBucket bucket = PageStorageBucket();
   bool pressed = false;
@@ -54,9 +51,7 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            print(pressed);
             pressed = true;
-            print(pressed);
             currentScreen = Explore();
             currentTab = 4;
           });

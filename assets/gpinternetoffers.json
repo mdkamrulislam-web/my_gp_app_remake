@@ -1,0 +1,56 @@
+[
+    {
+      "id": 101,
+      "day": "7 Days",
+      "tk": 152,
+      "net": "13 GB",
+      "coins": null,
+      "facility": "Limited Time Offer",
+      "package": "new"
+    },
+    {
+      "id": 102,
+      "day": "30 Days",
+      "tk": 516,
+      "net": "50 GB",
+      "coins": null,
+      "facility": "",
+      "package": "new"
+    },
+    {
+      "id": 103,
+      "day": "30 Days",
+      "tk": 308,
+      "net": "7 GB",
+      "coins": 253,
+      "facility": "16.7% bonus included",
+      "package": "new"
+    },
+    {
+      "id": 104,
+      "day": "7 Days",
+      "tk": 94,
+      "net": "3 GB",
+      "coins": 77,
+      "facility": "20% bonus included",
+      "package": "new"
+    },
+    {
+      "id": 105,
+      "day": "7 Days",
+      "tk": 198,
+      "net": "14.3 GB",
+      "coins": 163,
+      "facility": "10% bonus included",
+      "package": "new"
+    },
+    {
+      "id": 106,
+      "day": "72 Hours",
+      "tk": 69,
+      "net": "4 GB",
+      "coins": 57,
+      "facility": "14.3% bonus included",
+      "package": "new"
+    }
+  ]
