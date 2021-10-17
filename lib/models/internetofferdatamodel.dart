@@ -1,13 +1,4 @@
 class InterOfferDataModel {
-  //
-  // "id": 105,
-  // "day": "7 Days",
-  // "tk": 198,
-  // "net": "14.3 GB",
-  // "coins": 163,
-  // "facility": "10% bonus included",
-  // "package": "new"
-
   final int? id;
   final String? day;
   final int? tk;
@@ -36,3 +27,14 @@ class InterOfferDataModel {
         package: json['package'],
       );
 }
+
+//
+// "id": 105,
+// "day": "7 Days",
+// "tk": 198,
+// "net": "14.3 GB",
+// "coins": 163,
+// "facility": "10% bonus included",
+// "package": "new"
+
+// 1aa8d9c218bbcf9fe2d9

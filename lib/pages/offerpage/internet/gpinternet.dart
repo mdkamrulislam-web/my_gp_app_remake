@@ -44,6 +44,25 @@ class _GPInternetState extends State<GPInternet> {
   }
 
   Widget buildInternetOffers(List<InterOfferDataModel> internetoffers) {
+    // void priceSorting() {
+    //   List sortedPrice =
+    //       List.filled(internetoffers.length, null, growable: false);
+    //   for (int i = 0; i < internetoffers.length; i++) {
+    //     int minIndex = i;
+    //     for (int j = i + 1; j < internetoffers.length; j++) {
+    //       if (internetoffers[j].tk! < internetoffers[minIndex].tk!) {
+    //         minIndex = j;
+    //       }
+    //     }
+    //     int temp = internetoffers[i].tk!;
+    //     internetoffers[i].tk = internetoffers[minIndex].tk;
+    //     internetoffers[minIndex].tk = temp;
+    //   }
+    //   print(sortedPrice);
+    // }
+    //
+    // priceSorting();
+
     return Column(
       children: [
         Padding(

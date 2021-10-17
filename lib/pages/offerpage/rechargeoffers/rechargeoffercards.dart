@@ -131,19 +131,6 @@ class RechargeOffersPackageCard extends StatelessWidget {
                       Container(
                         margin: EdgeInsets.only(left: 5),
                         decoration: bonusAndBonusContainerChecker()![0],
-                        // BoxDecoration(
-                        //   color: Color.fromRGBO(225, 255, 240, 1),
-                        //   borderRadius:
-                        //       new BorderRadius.all(Radius.elliptical(50, 50)),
-                        //   boxShadow: const [
-                        //     BoxShadow(
-                        //       color: Colors.grey,
-                        //       offset: Offset(0.25, 0.25), //(x,y)
-                        //       blurRadius:
-                        //           1.5, // spreadRadius: 1.0, //extend the shadow
-                        //     )
-                        //   ],
-                        // ),
                         child: Center(
                           child: Padding(
                             padding: const EdgeInsets.only(
@@ -151,10 +138,6 @@ class RechargeOffersPackageCard extends StatelessWidget {
                             child: Text(
                               bonusChecker()!,
                               style: bonusAndBonusContainerChecker()![1],
-                              // TextStyle(
-                              //     fontWeight: FontWeight.w600,
-                              //     fontSize: 12,
-                              //     color: Colors.black),
                             ),
                           ),
                         ),
