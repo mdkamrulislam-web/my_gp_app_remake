@@ -54,7 +54,7 @@ class RechargeOffersPackageCard extends StatelessWidget {
     }
 
     List? bonusAndBonusContainerChecker() {
-      if (bonus != null) {
+      if (bonus != "") {
         BoxDecoration bd = BoxDecoration(
           color: Color.fromRGBO(225, 255, 240, 1),
           borderRadius: new BorderRadius.all(Radius.elliptical(50, 50)),
@@ -69,7 +69,7 @@ class RechargeOffersPackageCard extends StatelessWidget {
         TextStyle ts = TextStyle(
             fontWeight: FontWeight.w600, fontSize: 12, color: Colors.black);
         return [bd, ts];
-      } else if (bonus == null) {
+      } else if (bonus == "") {
         BoxDecoration bd = BoxDecoration(
           borderRadius: BorderRadius.circular(0),
           color: Colors.white,

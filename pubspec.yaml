@@ -59,6 +59,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/jsonfiles/gpinternetoffers.json
+    - assets/jsonfiles/gprechargeoffers.json
   # To add assets to your application, add an assets section, like this:
 #  assets:
 #    -assets/gpinternetoffers.json

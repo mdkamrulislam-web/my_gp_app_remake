@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:testing/api/rechargeofferapi.dart';
+import 'package:testing/models/rechargeoffermodel.dart';
 import 'rechargeoffercards.dart';
 
 class GPRechargeOffers extends StatelessWidget {
@@ -8,7 +10,32 @@ class GPRechargeOffers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
+      children: [
+        Expanded(
+          child: FutureBuilder<List<RechargeOfferDataModel>>(
+              future: RechargeOfferApi.getRechargeOfferDataLocally(context),
+              builder: (context, snapshot) {
+                final rechargeoffers = snapshot.data;
+
+                switch (snapshot.connectionState) {
+                  case ConnectionState.waiting:
+                    return const Center(child: CircularProgressIndicator());
+                  default:
+                    if (snapshot.hasError) {
+                      return const Center(child: Text('Some Error Occured!'));
+                    } else {
+                      return buildRechargeOffers(rechargeoffers!);
+                    }
+                }
+              }),
+        ),
+      ],
+    );
+  }
+
+  Widget buildRechargeOffers(List<RechargeOfferDataModel> rechargeoffers) {
+    return Column(
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 16.0, top: 20.0, bottom: 24),
@@ -30,13 +57,21 @@ class GPRechargeOffers extends StatelessWidget {
             ],
           ),
         ),
-
-        const RechargeOffersPackageCard(1000, 30, 796, '25 GB', 80,
-            null), // minute; day; tk; gb; cashback; bonus;
-        const RechargeOffersPackageCard(750, 30, 598, '25 GB', 52, null),
-        const RechargeOffersPackageCard(null, 30, 516, '50 GB', 50, null),
-        const RechargeOffersPackageCard(500, 30, 307, '', 40, '512 MB'),
-        const RechargeOffersPackageCard(null, 30, 307, '1 GB', 20, null),
+        Expanded(
+          child: ListView.builder(
+              itemCount: rechargeoffers.length,
+              itemBuilder: (context, index) {
+                final rechargeoffer = rechargeoffers[index];
+                return RechargeOffersPackageCard(
+                    rechargeoffer.minute,
+                    rechargeoffer.day,
+                    rechargeoffer.tk,
+                    rechargeoffer.net,
+                    rechargeoffer.cashback,
+                    rechargeoffer
+                        .bonus); // minute; day; tk; gb; cashback; bonus;;
+              }),
+        ),
       ],
     );
   }
