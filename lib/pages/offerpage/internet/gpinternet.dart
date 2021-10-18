@@ -46,41 +46,31 @@ class _GPInternetState extends State<GPInternet> {
 
   Widget buildInternetOffers(List<InterOfferDataModel> internetoffers) {
     // List?
-    List? sorting(List a) {
+    List<dynamic> sorting(List a) {
       List<int> id = [];
       List price = [];
       List? internetPacks = [];
+      List? indexNo = [];
       for (int i = 0; i < a.length; i++) {
         id.add(a[i].id);
         price.add(a[i].tk);
-        // // internetPacks.add([a[i].id, a[i].tk]);
-        // internetPacks.add(SortCategories(int_no: id[i], int_price: price[i]));
       }
       var k;
+      for (int i = 0; i < id.length; i++) {
+        indexNo.add(id.indexOf(id[i]));
+      }
       for (int j = 0; j < id.length; j++) {
-        k = InternetPackSortCategories(int_id: id[j], int_price: price[j]);
+        k = InternetPackSortCategories(
+            int_id: id[j], int_price: price[j], index: indexNo[j]);
         internetPacks.add(k);
       }
-      print(internetPacks);
-      print(id);
-      print(price);
+      List? sortedListIndex = [];
       internetPacks.sort((a, b) => a.int_price.compareTo(b.int_price));
-      internetPacks.forEach((pack) => print(pack.int_id));
-
-      // List<InternetPackSortCategories> int_packs = [
-      // InternetPackSortCategories(int_id: );
-      // ];
-      // List<InternetPackSortCategories> packs = [
-      //   InternetPackSortCategories(int_id: 101, int_price: 900),
-      //   InternetPackSortCategories(int_id: 102, int_price: 1900),
-      //   InternetPackSortCategories(int_id: 103, int_price: 500),
-      //   InternetPackSortCategories(int_id: 104, int_price: 800)
-      // ];
-      //
-      // print(packs);
+      internetPacks.forEach((pack) => sortedListIndex.add(pack.index));
+      print(sortedListIndex);
+      return sortedListIndex;
     }
 
-    // print(rooms[1]['roomBeds']);
     sorting(internetoffers);
 
     return Column(
@@ -138,7 +128,8 @@ class _GPInternetState extends State<GPInternet> {
           child: ListView.builder(
               itemCount: internetoffers.length,
               itemBuilder: (context, index) {
-                final internetoffer = internetoffers[index];
+                final internetoffer =
+                    internetoffers[sorting(internetoffers)[index]];
                 return GPInternetOfferCards(
                   internetoffer.day,
                   internetoffer.tk,
@@ -157,8 +148,9 @@ class _GPInternetState extends State<GPInternet> {
 class InternetPackSortCategories {
   int? int_id;
   int? int_price;
+  int? index;
 
-  InternetPackSortCategories({this.int_id, this.int_price});
+  InternetPackSortCategories({this.int_id, this.int_price, this.index});
 
   // Map<String, dynamic> toMap() {
   //   return {'id': int_no, 'price': int_price};
