@@ -1,6 +1,6 @@
 class InterOfferDataModel {
   final int? id;
-  final String? day;
+  final int? day;
   final int? tk;
   final String? net;
   final int? coins;
@@ -9,7 +9,7 @@ class InterOfferDataModel {
 
   const InterOfferDataModel({
     this.id = 0,
-    this.day = "",
+    this.day = 0,
     this.tk = 0,
     this.net = "",
     this.coins = 0,

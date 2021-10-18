@@ -9,7 +9,7 @@ class GPInternetOfferCards extends StatelessWidget {
       {Key? key})
       : super(key: key);
 
-  final String? day;
+  final int? day;
   final int? tk;
   final String? net;
   final int? coins;
@@ -45,6 +45,17 @@ class GPInternetOfferCards extends StatelessWidget {
       RPSCustomPainter x = RPSCustomPainter(
           kFacilityBackgroundDeepColor = Colors.white,
           kFacilityBackgroundLightColor = Colors.white);
+      return x;
+    }
+  }
+
+  String? dayOrHourChecker() {
+    if (day! <= 3) {
+      int hour = day! * 24;
+      String x = "$hour Hour";
+      return x;
+    } else {
+      String x = "$day Day";
       return x;
     }
   }
@@ -102,7 +113,7 @@ class GPInternetOfferCards extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  '$day',
+                                  dayOrHourChecker()!,
                                   style: const TextStyle(
                                     fontSize: 16,
                                   ),

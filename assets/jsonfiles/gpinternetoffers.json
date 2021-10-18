@@ -1,7 +1,7 @@
 [
     {
       "id": 101,
-      "day": "7 Days",
+      "day": 8,
       "tk": 152,
       "net": "13 GB",
       "coins": null,
@@ -10,7 +10,7 @@
     },
     {
       "id": 102,
-      "day": "30 Days",
+      "day": 25,
       "tk": 516,
       "net": "50 GB",
       "coins": null,
@@ -19,7 +19,7 @@
     },
     {
       "id": 103,
-      "day": "30 Days",
+      "day": 30,
       "tk": 308,
       "net": "7 GB",
       "coins": 253,
@@ -28,7 +28,7 @@
     },
     {
       "id": 104,
-      "day": "7 Days",
+      "day": 7,
       "tk": 94,
       "net": "3 GB",
       "coins": 77,
@@ -37,7 +37,7 @@
     },
     {
       "id": 105,
-      "day": "7 Days",
+      "day": 7,
       "tk": 198,
       "net": "14.3 GB",
       "coins": 163,
@@ -46,7 +46,7 @@
     },
     {
       "id": 106,
-      "day": "72 Hours",
+      "day": 3,
       "tk": 69,
       "net": "4 GB",
       "coins": 57,

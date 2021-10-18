@@ -49,11 +49,13 @@ class _GPInternetState extends State<GPInternet> {
     List<dynamic> sorting(List a) {
       List<int> id = [];
       List price = [];
+      List? validity = [];
       List? internetPacks = [];
       List? indexNo = [];
       for (int i = 0; i < a.length; i++) {
         id.add(a[i].id);
         price.add(a[i].tk);
+        validity.add(a[i].day);
       }
       var k;
       for (int i = 0; i < id.length; i++) {
@@ -61,25 +63,36 @@ class _GPInternetState extends State<GPInternet> {
       }
       for (int j = 0; j < id.length; j++) {
         k = InternetPackSortCategories(
-            int_id: id[j], int_price: price[j], index: indexNo[j]);
+            int_id: id[j],
+            int_price: price[j],
+            index: indexNo[j],
+            int_validity: validity[j]);
         internetPacks.add(k);
       }
-      List? sortedListIndex = [];
+      List? sortedInternetPriceList = [];
       internetPacks.sort((a, b) => a.int_price.compareTo(b.int_price));
-      internetPacks.forEach((pack) => sortedListIndex.add(pack.index));
-      print(sortedListIndex);
-      return sortedListIndex;
+      internetPacks.forEach((pack) => sortedInternetPriceList.add(pack.index));
+
+      List? sortedInternetValidityList = [];
+      internetPacks.sort((a, b) => a.int_validity.compareTo(b.int_validity));
+      internetPacks
+          .forEach((pack) => sortedInternetValidityList.add(pack.index));
+
+      return [sortedInternetPriceList, sortedInternetValidityList];
     }
 
     sorting(internetoffers);
 
     List selectedList() {
       if (dropDownValue == "Price") {
-        List x = sorting(internetoffers);
+        List x = sorting(internetoffers)[0];
+        return x;
+      } else if (dropDownValue == "Validity") {
+        List x = sorting(internetoffers)[1];
         return x;
       } else {
         List x = [];
-        for (int i = 0; i < sorting(internetoffers).length; i++) {
+        for (int i = 0; i < sorting(internetoffers)[0].length; i++) {
           x.add(i);
         }
         return x;
@@ -162,8 +175,10 @@ class InternetPackSortCategories {
   int? int_id;
   int? int_price;
   int? index;
+  int? int_validity;
 
-  InternetPackSortCategories({this.int_id, this.int_price, this.index});
+  InternetPackSortCategories(
+      {this.int_id, this.int_price, this.index, this.int_validity});
 
   // Map<String, dynamic> toMap() {
   //   return {'id': int_no, 'price': int_price};
