@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:testing/api/internetofferapi.dart';
 import '../../../models/internetofferdatamodel.dart';
 import 'internetoffercards.dart';
+import 'dart:collection';
 
 class GPInternet extends StatefulWidget {
   const GPInternet({Key? key}) : super(key: key);
@@ -44,24 +45,43 @@ class _GPInternetState extends State<GPInternet> {
   }
 
   Widget buildInternetOffers(List<InterOfferDataModel> internetoffers) {
-    // void priceSorting() {
-    //   List sortedPrice =
-    //       List.filled(internetoffers.length, null, growable: false);
-    //   for (int i = 0; i < internetoffers.length; i++) {
-    //     int minIndex = i;
-    //     for (int j = i + 1; j < internetoffers.length; j++) {
-    //       if (internetoffers[j].tk! < internetoffers[minIndex].tk!) {
-    //         minIndex = j;
-    //       }
-    //     }
-    //     int temp = internetoffers[i].tk!;
-    //     internetoffers[i].tk = internetoffers[minIndex].tk;
-    //     internetoffers[minIndex].tk = temp;
-    //   }
-    //   print(sortedPrice);
-    // }
-    //
-    // priceSorting();
+    // List?
+    List? sorting(List a) {
+      List<int> id = [];
+      List price = [];
+      List? internetPacks = [];
+      for (int i = 0; i < a.length; i++) {
+        id.add(a[i].id);
+        price.add(a[i].tk);
+        // // internetPacks.add([a[i].id, a[i].tk]);
+        // internetPacks.add(SortCategories(int_no: id[i], int_price: price[i]));
+      }
+      var k;
+      for (int j = 0; j < id.length; j++) {
+        k = InternetPackSortCategories(int_id: id[j], int_price: price[j]);
+        internetPacks.add(k);
+      }
+      print(internetPacks);
+      print(id);
+      print(price);
+      internetPacks.sort((a, b) => a.int_price.compareTo(b.int_price));
+      internetPacks.forEach((pack) => print(pack.int_id));
+
+      // List<InternetPackSortCategories> int_packs = [
+      // InternetPackSortCategories(int_id: );
+      // ];
+      // List<InternetPackSortCategories> packs = [
+      //   InternetPackSortCategories(int_id: 101, int_price: 900),
+      //   InternetPackSortCategories(int_id: 102, int_price: 1900),
+      //   InternetPackSortCategories(int_id: 103, int_price: 500),
+      //   InternetPackSortCategories(int_id: 104, int_price: 800)
+      // ];
+      //
+      // print(packs);
+    }
+
+    // print(rooms[1]['roomBeds']);
+    sorting(internetoffers);
 
     return Column(
       children: [
@@ -132,4 +152,15 @@ class _GPInternetState extends State<GPInternet> {
       ],
     );
   }
+}
+
+class InternetPackSortCategories {
+  int? int_id;
+  int? int_price;
+
+  InternetPackSortCategories({this.int_id, this.int_price});
+
+  // Map<String, dynamic> toMap() {
+  //   return {'id': int_no, 'price': int_price};
+  // }
 }
