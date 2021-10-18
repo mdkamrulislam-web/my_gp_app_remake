@@ -73,6 +73,19 @@ class _GPInternetState extends State<GPInternet> {
 
     sorting(internetoffers);
 
+    List selectedList() {
+      if (dropDownValue == "Price") {
+        List x = sorting(internetoffers);
+        return x;
+      } else {
+        List x = [];
+        for (int i = 0; i < sorting(internetoffers).length; i++) {
+          x.add(i);
+        }
+        return x;
+      }
+    }
+
     return Column(
       children: [
         Padding(
@@ -128,8 +141,8 @@ class _GPInternetState extends State<GPInternet> {
           child: ListView.builder(
               itemCount: internetoffers.length,
               itemBuilder: (context, index) {
-                final internetoffer =
-                    internetoffers[sorting(internetoffers)[index]];
+                final internetoffer = internetoffers[
+                    selectedList()[index]]; //sorting(internetoffers)[index]
                 return GPInternetOfferCards(
                   internetoffer.day,
                   internetoffer.tk,
