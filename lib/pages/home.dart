@@ -18,19 +18,18 @@ class _HomeState extends State<Home> {
   //Properties
   int currentTab = 0;
   final List<Widget> screens = [
-    Dashboard(),
-    Offers(),
-    Explore(),
-    Account(),
-    Menu(),
+    const Dashboard(),
+    const Offers(),
+    const Explore(),
+    const Account(),
+    const Menu(),
   ]; //To store Tab views
 
-  Widget currentScreen = Dashboard();
+  Widget currentScreen = const Dashboard();
   final PageStorageBucket bucket = PageStorageBucket();
   bool pressed = false;
   String buttonText = 'Explore';
 
-  @override
   Color? exploreButtonCheck() {
     if (pressed == true) {
       Color x = Colors.blue;
@@ -42,6 +41,7 @@ class _HomeState extends State<Home> {
     }
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageStorage(
@@ -52,12 +52,12 @@ class _HomeState extends State<Home> {
         onPressed: () {
           setState(() {
             pressed = true;
-            currentScreen = Explore();
+            currentScreen = const Explore();
             currentTab = 4;
           });
         },
         backgroundColor: Colors.blue,
-        child: Icon(
+        child: const Icon(
           Icons.explore,
           color: Colors.white,
           size: 55,
@@ -67,8 +67,8 @@ class _HomeState extends State<Home> {
 
       //Bottom App Bar
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        child: Container(
+        shape: const CircularNotchedRectangle(),
+        child: SizedBox(
           height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,7 +79,7 @@ class _HomeState extends State<Home> {
                   setState(
                     () {
                       // currentScreen = Explore();
-                      currentScreen = Dashboard();
+                      currentScreen = const Dashboard();
                       currentTab = 0;
                       pressed = false;
                     },
@@ -103,7 +103,7 @@ class _HomeState extends State<Home> {
                 onPressed: () {
                   setState(
                     () {
-                      currentScreen = Offers();
+                      currentScreen = const Offers();
                       currentTab = 1;
                       pressed = false;
                     },
@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: 10.0, left: 12),
+                  padding: const EdgeInsets.only(bottom: 10.0, left: 12),
                   child: Text(
                     buttonText,
                     style: TextStyle(
@@ -141,7 +141,7 @@ class _HomeState extends State<Home> {
                   setState(
                     () {
                       // currentScreen = Explore();
-                      currentScreen = Account();
+                      currentScreen = const Account();
                       currentTab = 2;
                       pressed = false;
                     },
@@ -166,7 +166,7 @@ class _HomeState extends State<Home> {
                   setState(
                     () {
                       // currentScreen = Explore();
-                      currentScreen = Menu();
+                      currentScreen = const Menu();
                       currentTab = 3;
                       pressed = false;
                     },
