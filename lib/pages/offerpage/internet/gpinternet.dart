@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:testing/api/internetofferapi.dart';
 import '../../../models/internetofferdatamodel.dart';
 import 'internetoffercards.dart';
-import 'dart:collection';
 
 class GPInternet extends StatefulWidget {
   const GPInternet({Key? key}) : super(key: key);
@@ -50,25 +49,31 @@ class _GPInternetState extends State<GPInternet> {
       List<int> id = [];
       List price = [];
       List? validity = [];
+      List? volume = [];
       List? internetPacks = [];
       List? indexNo = [];
       for (int i = 0; i < a.length; i++) {
         id.add(a[i].id);
         price.add(a[i].tk);
         validity.add(a[i].day);
+        volume.add(a[i].net);
       }
+
       var k;
       for (int i = 0; i < id.length; i++) {
         indexNo.add(id.indexOf(id[i]));
       }
       for (int j = 0; j < id.length; j++) {
         k = InternetPackSortCategories(
-            int_id: id[j],
-            int_price: price[j],
-            index: indexNo[j],
-            int_validity: validity[j]);
+          int_id: id[j],
+          int_price: price[j],
+          index: indexNo[j],
+          int_validity: validity[j],
+          int_volume: volume[j],
+        );
         internetPacks.add(k);
       }
+
       List? sortedInternetPriceList = [];
       internetPacks.sort((a, b) => a.int_price.compareTo(b.int_price));
       internetPacks.forEach((pack) => sortedInternetPriceList.add(pack.index));
@@ -78,7 +83,15 @@ class _GPInternetState extends State<GPInternet> {
       internetPacks
           .forEach((pack) => sortedInternetValidityList.add(pack.index));
 
-      return [sortedInternetPriceList, sortedInternetValidityList];
+      List? sortedInternetVolumeList = [];
+      internetPacks.sort((a, b) => a.int_volume.compareTo(b.int_volume));
+      internetPacks.forEach((pack) => sortedInternetVolumeList.add(pack.index));
+
+      return [
+        sortedInternetPriceList,
+        sortedInternetValidityList,
+        sortedInternetVolumeList,
+      ];
     }
 
     sorting(internetoffers);
@@ -89,6 +102,9 @@ class _GPInternetState extends State<GPInternet> {
         return x;
       } else if (dropDownValue == "Validity") {
         List x = sorting(internetoffers)[1];
+        return x;
+      } else if (dropDownValue == "Volume") {
+        List x = sorting(internetoffers)[2];
         return x;
       } else {
         List x = [];
@@ -176,11 +192,12 @@ class InternetPackSortCategories {
   int? int_price;
   int? index;
   int? int_validity;
+  double? int_volume;
 
   InternetPackSortCategories(
-      {this.int_id, this.int_price, this.index, this.int_validity});
-
-  // Map<String, dynamic> toMap() {
-  //   return {'id': int_no, 'price': int_price};
-  // }
+      {this.int_id,
+      this.int_price,
+      this.index,
+      this.int_validity,
+      this.int_volume});
 }

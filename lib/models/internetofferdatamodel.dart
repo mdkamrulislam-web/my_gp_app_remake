@@ -2,7 +2,7 @@ class InterOfferDataModel {
   final int? id;
   final int? day;
   final int? tk;
-  final String? net;
+  final double? net;
   final int? coins;
   final String? facility;
   final String? package;
@@ -11,7 +11,7 @@ class InterOfferDataModel {
     this.id = 0,
     this.day = 0,
     this.tk = 0,
-    this.net = "",
+    this.net = 0.0,
     this.coins = 0,
     this.facility = "",
     this.package = "",

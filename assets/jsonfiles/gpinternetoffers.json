@@ -3,7 +3,7 @@
       "id": 101,
       "day": 8,
       "tk": 152,
-      "net": "13 GB",
+      "net": 13.0,
       "coins": null,
       "facility": "Limited Time Offer",
       "package": "new"
@@ -12,7 +12,7 @@
       "id": 102,
       "day": 25,
       "tk": 516,
-      "net": "50 GB",
+      "net": 50.0,
       "coins": null,
       "facility": "",
       "package": "new"
@@ -21,7 +21,7 @@
       "id": 103,
       "day": 30,
       "tk": 308,
-      "net": "7 GB",
+      "net": 7.0,
       "coins": 253,
       "facility": "16.7% bonus included",
       "package": "new"
@@ -30,7 +30,7 @@
       "id": 104,
       "day": 7,
       "tk": 94,
-      "net": "3 GB",
+      "net": 3.0,
       "coins": 77,
       "facility": "20% bonus included",
       "package": "new"
@@ -39,7 +39,7 @@
       "id": 105,
       "day": 7,
       "tk": 198,
-      "net": "14.3 GB",
+      "net": 14.3,
       "coins": 163,
       "facility": "10% bonus included",
       "package": "new"
@@ -48,7 +48,7 @@
       "id": 106,
       "day": 3,
       "tk": 69,
-      "net": "4 GB",
+      "net": 4.0,
       "coins": 57,
       "facility": "14.3% bonus included",
       "package": "new"

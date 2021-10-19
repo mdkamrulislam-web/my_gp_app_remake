@@ -11,7 +11,7 @@ class GPInternetOfferCards extends StatelessWidget {
 
   final int? day;
   final int? tk;
-  final String? net;
+  final double? net;
   final int? coins;
   final String? facility;
 
@@ -60,6 +60,14 @@ class GPInternetOfferCards extends StatelessWidget {
     }
   }
 
+  String prettify(double d) {
+    // toStringAsFixed guarantees the specified number of fractional
+    // digits, so the regular expression is simpler than it would need to
+    // be for more general cases.
+    String x = d.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0*$'), '') + " GB";
+    return x;
+  }
+
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -95,7 +103,7 @@ class GPInternetOfferCards extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(left: 12.0),
                             child: Text(
-                              '$net',
+                              prettify(net!),
                               style: const TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 18,
