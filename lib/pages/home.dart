@@ -128,6 +128,11 @@ class _HomeState extends State<Home> {
                       currentScreen = const Offers();
                       currentTab = 1;
                       pressed = false;
+                      explorebuttonbgcolor = Colors.white;
+                      angle = 0;
+                      tringle1 = Color(0xff2979BE).withOpacity(1.0);
+                      tringle2 = Color(0xff42A5DD).withOpacity(1.0);
+                      insideCircle = Color(0xffFFFFFF).withOpacity(1.0);
                     },
                   );
                 },
@@ -166,6 +171,11 @@ class _HomeState extends State<Home> {
                       currentScreen = const Account();
                       currentTab = 2;
                       pressed = false;
+                      explorebuttonbgcolor = Colors.white;
+                      angle = 0;
+                      tringle1 = Color(0xff2979BE).withOpacity(1.0);
+                      tringle2 = Color(0xff42A5DD).withOpacity(1.0);
+                      insideCircle = Color(0xffFFFFFF).withOpacity(1.0);
                     },
                   );
                 },
@@ -191,6 +201,11 @@ class _HomeState extends State<Home> {
                       currentScreen = const Menu();
                       currentTab = 3;
                       pressed = false;
+                      explorebuttonbgcolor = Colors.white;
+                      angle = 0;
+                      tringle1 = Color(0xff2979BE).withOpacity(1.0);
+                      tringle2 = Color(0xff42A5DD).withOpacity(1.0);
+                      insideCircle = Color(0xffFFFFFF).withOpacity(1.0);
                     },
                   );
                 },
