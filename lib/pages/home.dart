@@ -6,6 +6,7 @@ import 'package:testing/pages/dashboard.dart';
 import 'package:testing/pages/explore.dart';
 import 'package:testing/pages/menu.dart';
 import 'package:testing/pages/offerpage/offers.dart';
+import 'package:testing/customdesigns/exploreappicon.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -30,6 +31,12 @@ class _HomeState extends State<Home> {
   bool pressed = false;
   String buttonText = 'Explore';
 
+  Color explorebuttonbgcolor = Color(0xffFFFFFF).withOpacity(1.0);
+  int angle = 0;
+  Color tringle1 = Color(0xff2979BE).withOpacity(1.0);
+  Color tringle2 = Color(0xff42A5DD).withOpacity(1.0);
+  Color insideCircle = Color(0xffFFFFFF).withOpacity(1.0);
+
   Color? exploreButtonCheck() {
     if (pressed == true) {
       Color x = Colors.blue;
@@ -49,20 +56,30 @@ class _HomeState extends State<Home> {
         child: currentScreen,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            pressed = true;
-            currentScreen = const Explore();
-            currentTab = 4;
-          });
-        },
-        backgroundColor: Colors.blue,
-        child: const Icon(
-          Icons.explore,
-          color: Colors.white,
-          size: 55,
-        ),
-      ),
+          onPressed: () {
+            setState(() {
+              pressed = true;
+              currentScreen = const Explore();
+              currentTab = 4;
+              angle = 180;
+              explorebuttonbgcolor = Colors.blue;
+              tringle1 = Colors.white;
+              tringle2 = Colors.white;
+              insideCircle = Colors.blue;
+            });
+          },
+          backgroundColor: explorebuttonbgcolor,
+          child: RotationTransition(
+            turns: AlwaysStoppedAnimation(angle / 360),
+            child: CustomPaint(
+              size: Size(
+                  60,
+                  (60 * 1)
+                      .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+              painter: RPSCustomPainter(
+                  explorebuttonbgcolor, tringle1, tringle2, insideCircle),
+            ),
+          )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
       //Bottom App Bar
@@ -82,6 +99,11 @@ class _HomeState extends State<Home> {
                       currentScreen = const Dashboard();
                       currentTab = 0;
                       pressed = false;
+                      explorebuttonbgcolor = Colors.white;
+                      angle = 0;
+                      tringle1 = Color(0xff2979BE).withOpacity(1.0);
+                      tringle2 = Color(0xff42A5DD).withOpacity(1.0);
+                      insideCircle = Color(0xffFFFFFF).withOpacity(1.0);
                     },
                   );
                 },
